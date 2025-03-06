@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Marcin Olszewski">
@@ -12,15 +13,26 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHWDN8ZBDP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-  
+
     gtag('config', 'G-GHWDN8ZBDP');
   </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G712METKES"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-G712METKES');
+  </script>
+
   <style>
     * {
       -webkit-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: Roboto, Arial, sans-serif;
@@ -34,14 +46,14 @@
       max-width: 600px;
       margin: 0 auto;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+      flex-wrap: wrap;
     }
 
-     h1 {
+    h1 {
       margin: 40px 0;
       text-decoration: underline;
       -webkit-text-decoration-color: cadetblue;
-              text-decoration-color: cadetblue;
+      text-decoration-color: cadetblue;
     }
 
     .col {
@@ -50,28 +62,28 @@
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
       width: 50%;
       -ms-flex-line-pack: start;
-          align-content: flex-start;
+      align-content: flex-start;
     }
 
     @media all and (max-width: 600px) {
       .col {
         width: 100%;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
       }
 
       .container {
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
       }
 
       textarea {
@@ -152,7 +164,7 @@
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+      flex-wrap: nowrap;
       margin: 5px 0;
     }
 
@@ -163,8 +175,8 @@
       width: 100%;
       text-align: center;
       -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
     }
 
     .alert {
@@ -194,6 +206,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>
@@ -243,11 +256,11 @@
     const inputs = document.querySelectorAll('.text-input')
 
     function inputFocus(array) {
-      for(let i = 0; i < array.length; i++) {
-        array[i].addEventListener('focusin', function(e) {
+      for (let i = 0; i < array.length; i++) {
+        array[i].addEventListener('focusin', function (e) {
           e.target.previousSibling.previousSibling.classList.add('label-bold');
         })
-        array[i].addEventListener('focusout', function(e) {
+        array[i].addEventListener('focusout', function (e) {
           e.target.previousSibling.previousSibling.classList.remove('label-bold');
         })
       }
@@ -258,12 +271,12 @@
     const checkboxArray = document.querySelectorAll('.radios');
 
     function onlyOneCheckbox(array) {
-      for(let i = 0; i < array.length; i++) {
-        array[i].addEventListener('click', function() {
-          if(this.checked === true) {
+      for (let i = 0; i < array.length; i++) {
+        array[i].addEventListener('click', function () {
+          if (this.checked === true) {
             let checkedElem = this;
-            for(let i = 0; i < array.length; i++) {
-              if(array[i] != checkedElem) {
+            for (let i = 0; i < array.length; i++) {
+              if (array[i] != checkedElem) {
                 array[i].checked = false;
               }
             }
@@ -275,20 +288,20 @@
     onlyOneCheckbox(checkboxArray);
 
     const imgLink = document.getElementById('link');
-          imgHref = document.getElementById('href');
-          imgWidth = document.getElementById('width');
-          imgHeight = document.getElementById('height');
-          submitBtn = document.getElementById('submit');
-          copyBtn = document.getElementById('copy');
-          output = document.getElementById('output');
-          parent = document.getElementById('target_parent');
-          blank = document.getElementById('target_blank');
+    imgHref = document.getElementById('href');
+    imgWidth = document.getElementById('width');
+    imgHeight = document.getElementById('height');
+    submitBtn = document.getElementById('submit');
+    copyBtn = document.getElementById('copy');
+    output = document.getElementById('output');
+    parent = document.getElementById('target_parent');
+    blank = document.getElementById('target_blank');
 
     let targetValue;
 
-    submitBtn.addEventListener('click', function() {
+    submitBtn.addEventListener('click', function () {
 
-      if(parent.checked === true) {
+      if (parent.checked === true) {
         targetValue = '_blank';
       } else {
         targetValue = '_parent';
@@ -338,16 +351,17 @@
       <\/html>`
     });
 
-    copyBtn.addEventListener('click', function() {
+    copyBtn.addEventListener('click', function () {
       let contentToCopy = document.getElementById('output');
       contentToCopy.select();
       document.execCommand('copy');
       document.getElementById('copy_alert').style.visibility = 'visible';
 
-      setTimeout(function() {
+      setTimeout(function () {
         document.getElementById('copy_alert').style.visibility = 'hidden';
       }, 2000)
     });
   </script>
 </body>
+
 </html>
